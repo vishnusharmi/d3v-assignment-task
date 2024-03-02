@@ -1,0 +1,33 @@
+.product-detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+span {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+}
+.back-button button {
+  border-radius: 5px;
+  background-color: brown;
+}
+.detail-card {
+  justify-content: center;
+  width: 400px;
+}
+.details {
+  background-color: grey;
+  padding: 5px;
+}
+
+.detail-card h2 {
+  margin-bottom: 10px;
+}
+
+.detail-card p {
+  margin-bottom: 15px;
+}
+.descrip {
+  color: blue;
+}
