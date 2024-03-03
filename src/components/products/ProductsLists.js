@@ -9,7 +9,7 @@ const ProductsLists = () => {
   const [totalPage, setTotalPage] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
-  const [sortOrder, setSortOrder] = useState("asc"); // Initialize sortOrder state
+  const [sortOrder, setSortOrder] = useState("asc");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,8 +22,6 @@ const ProductsLists = () => {
       const { products } = await ProductService.searchProducts(
         searchQuery.toLowerCase()
       );
-
-      // Apply filtering and sorting
       const filteredAndSortedProducts = filterAndSortProducts(products);
 
       setProducts(filteredAndSortedProducts);
@@ -42,14 +40,15 @@ const ProductsLists = () => {
   };
 
   const filterAndSortProducts = (products) => {
-    // Filter products based on search query
     let filteredProducts = products.filter((product) =>
       product.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
-
-    // Sort products based on selected sorting method
     filteredProducts.sort((a, b) => {
-      return sortOrder === "asc" ? a.price - b.price : b.price - a.price; // Sort by price
+      if (sortOrder === "asc") {
+        return a.price - b.price;
+      } else {
+        return b.price - a.price;
+      }
     });
 
     return filteredProducts;

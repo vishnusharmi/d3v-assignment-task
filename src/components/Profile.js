@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Button, Card } from "react-bootstrap";
+import SearchNav from "./SearchNav";
+import "./Profile.css";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
   const [values, setValues] = useState([]);
@@ -23,19 +27,38 @@ export default function Profile() {
   }, []);
   console.log(values);
 
-  const renderObject = (obj) => {
-    return Object.entries(obj).map(([key, value]) => (
-      <div key={key}>
-        <strong>{key}:</strong>{" "}
-        {typeof value === "object" ? renderObject(value) : value}
-      </div>
-    ));
-  };
-
   return (
     <div>
-      <h2>User Profile</h2>
-      <div>{renderObject(values)}</div>
+      <SearchNav />
+      <div className="container">
+        {values ? (
+          <Card className="card" style={{ width: "20rem" }}>
+            <Card.Body>
+              <Card.Title>User Profile</Card.Title>
+              <Card.Text>
+                <strong>Name:</strong> {values.firstName} {values.lastName}
+              </Card.Text>
+              <Card.Text>
+                <strong>Username:</strong> {values.username}
+              </Card.Text>
+              <Card.Text>
+                <strong>Gender:</strong> {values.gender}
+              </Card.Text>
+              <Card.Text>
+                <strong>Age:</strong> {values.age}
+              </Card.Text>
+              <Card.Text>
+                <strong>Email:</strong> {values.email}
+              </Card.Text>
+              <Link to="/ProductList">
+                <Button variant="warning">Go Back</Button>
+              </Link>
+            </Card.Body>
+          </Card>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
     </div>
   );
 }

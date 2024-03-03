@@ -33,30 +33,6 @@ export default function Register() {
     return Object.keys(errors).length === 0;
   };
 
-  //   const handleSubmit = async (e) => {
-  //     e.preventDefault();
-  //     if (validateForm()) {
-  //       try {
-  //         const response = await fetch("https://dummyjson.com/users/add", {
-  //           method: "POST",
-  //           headers: { "Content-Type": "application/json" },
-  //           body: JSON.stringify(formData),
-  //         });
-  //         if (response.ok) {
-  //           console.log("Registration successful!");
-  //           console.log(response.json());
-  //           setFormData({ username: "", password: "", email: "" });
-  //           Navigate("/login");
-  //         } else {
-  //           const data = await response.json();
-  //           console.error("Registration failed:", data.error);
-  //         }
-  //       } catch (error) {
-  //         console.error("Error during registration:", error.message);
-  //       }
-  //     }
-  //   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {

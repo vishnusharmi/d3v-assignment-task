@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./ProductsDetails.css";
 import ProductService from "../../servises/ProductService";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Button } from "react-bootstrap";
 import SearchNav from "../SearchNav";
 
@@ -28,54 +28,18 @@ export default function ProductsDetails() {
   return (
     <div>
       <SearchNav />
-      {/* <div className="product-detail-container">
-        {product ? (
-          <div className="detail-card">
-            <div className="detail-images">
-              {product.images.map((image, index) => (
-                <img
-                  key={index}
-                  src={image}
-                  alt={product.title}
-                  style={{ width: "200px", height: "150px" }}
-                />
-              ))}
-            </div>
-            <div className="details">
-              <h3 style={{ color: "Highlight" }}>{product.title}</h3>
-              <p>
-                <span>Description:</span> {product.description}
-              </p>
-              <p>
-                <span>Price:</span> ${product.price}
-              </p>
-            </div>
-            <div className="back-button">
-              <button>
-                <Link to="/ProductList">
-                  <Button variant="warning">Go Back</Button>
-                </Link>
-              </button>
-            </div>
-          </div>
-        ) : (
-          <p>Loading...</p>
-        )}
-      </div> */}
       <div className="product-detail-container">
         {product ? (
           <div className="detail-card">
             <Card>
               <Card.Body>
                 <div className="detail-images">
-                  {product.images.map((image, index) => (
-                    <Card.Img
-                      key={index}
-                      src={image}
-                      alt={product.title}
-                      style={{ width: "200px", height: "150px" }}
-                    />
-                  ))}
+                  <Card.Img
+                    src={product.images[0]}
+                    alt={product.title}
+                    style={{ width: "200px", height: "150px" }}
+                  />
+                  {/* ))} */}
                 </div>
                 <Card.Title style={{ color: "Highlight" }}>
                   {product.title}
